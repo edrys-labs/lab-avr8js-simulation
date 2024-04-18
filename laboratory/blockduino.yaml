@@ -1,0 +1,213 @@
+id: MmsOiQBwua9iEdH1qtrBe0O2n1IbA1Wgo77eonnn
+createdBy: 15sg55y5KVFu
+dateCreated: 1689064431903
+name: Arduino Programming with BlockDuino (with AVR8js-Sim)
+meta:
+  logo: https://raw.githubusercontent.com/edrys-labs/lab-avr8js-simulation/main/media/blockduino.png
+  description: >-
+    Embark on an exciting journey into the world of Arduino and physical
+    computing with our introductory course designed for 5th grade students and
+    above. Discover how to bring your ideas to life as you learn to program and
+    control electronic components. This interactive course is divided into three
+    engaging rooms, each offering hands-on activities with real-time feedback.
+    Start with basic programming concepts, advance through controlling inputs
+    and outputs, and culminate in creating dynamic light displays. Join us to
+    unleash your creativity and technological skills!
+  selfAssign: true
+  defaultNumberOfRooms: '1'
+members:
+  teacher: []
+  student: []
+modules:
+  - url: https://edrys-labs.github.io/module-markdown-it/index.html
+    config: >-
+      # Introduction to Arduino Programming and Physical Computing
+
+      Arduino programming provides an accessible gateway into the world of
+      electronics and programming. At its core, Arduino is a
+      microcontroller-based platform that allows users to interact with various
+      electronic components through easy-to-use software and hardware. It's
+      ideal for hobbyists, artists, and students to prototype and build
+      interactive projects.
+
+      Physical computing means building interactive physical systems through the
+      use of software and hardware that can sense and respond to the analog
+      world. In Arduino projects, this often involves reading inputs (like
+      pressing a button or sensing light) and controlling outputs (like
+      activating a motor or turning on an LED).
+
+
+      In this initial room, students will explore the foundational concepts of
+      Arduino programming, focusing on serial communication. Serial
+      communication allows Arduino to communicate with your computer or other
+      devices.
+    showInCustom: Lobby
+    width: full
+    height: tall
+  - url: https://edrys-labs.github.io/module-blockly-duino-v2/index.html
+    config:
+      code: |-
+        <xml xmlns="https://developers.google.com/blockly/xml">
+          <variables>
+            <variable type="String" id="z~jQ?h:|,if+2K?];93i">str</variable>
+          </variables>
+          <comment id="2;ETfl^h5@~%tt1RMhnn" x="36" y="136" h="38" w="409">The main program starts here ...</comment>
+          <block type="board_serial_init" id="1DYrv8.`Wj|r^k#[:_K(" x="38" y="88">
+            <field name="SPEED">9600</field>
+          </block>
+          <block type="vars_set_string" id="{vo=Pn6Y;.eehBOmQD6@" x="38" y="188">
+            <field name="VAR_SET_STRING" id="z~jQ?h:|,if+2K?];93i" variabletype="String">str</field>
+            <value name="VALUE">
+              <block type="board_serial_readStringUntil" id="6*a,kO~H!:oH`9:cIU@i">
+                <value name="CONTENT">
+                  <block type="text" id="M#)2(Ugi#(Zf(K@99$xc">
+                    <field name="TEXT">;</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="#Q_JZAnKPZpZVU4EEQZ0">
+                <value name="IF0">
+                  <block type="logic_compare" id="}S/0WE6!r~|@72Xg|cpc">
+                    <field name="OP">NEQ</field>
+                    <value name="A">
+                      <block type="vars_get_string" id="0v1[TLKKw@Bg/v/kTFi(">
+                        <field name="VAR_GET_STRING" id="z~jQ?h:|,if+2K?];93i" variabletype="String">str</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="~-7j.]BVs(D5(MGV2WX6">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="controls_if" id="GbUj60@MB_#APosbvVsz">
+                    <mutation else="1"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare" id="A%htWyAF0N@[];/gk[@h">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="vars_get_string" id="Jw?/lsfjb|m30(?O4Qe:">
+                            <field name="VAR_GET_STRING" id="z~jQ?h:|,if+2K?];93i" variabletype="String">str</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="text" id="Us@e6PBG00.yMpja8V8X">
+                            <field name="TEXT">send</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="board_serial_print" id=":/6z-!n)lsXjVix)n/Xc">
+                        <value name="CONTENT">
+                          <block type="text" id="{0j6QgyP,)S{!m^!b)Kn">
+                            <field name="TEXT">identified</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="board_serial_print" id="cpc=D9mbMnjMbRW^o8-4">
+                        <value name="CONTENT">
+                          <block type="text" id="Tl6@1)7jxty-q,f3mQZ;">
+                            <field name="TEXT">unknown</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </xml>
+      runCommand: execute
+      board: arduino_mega
+    studentConfig: ''
+    teacherConfig: ''
+    stationConfig: ''
+    showInCustom: Room 1
+    width: full
+    height: huge
+  - url: https://edrys-labs.github.io/module-markdown-it/index.html
+    showInCustom: Room 1
+    width: full
+    height: medium
+    config: |-
+      # Introduction to Arduino Programming: Understanding Serial Communication
+
+      Arduino is an open-source electronics platform based on easy-to-use
+      hardware and software. It's intended for anyone making interactive
+      projects. One of the fundamental aspects of Arduino programming involves
+      understanding how to communicate with the Arduino board via serial
+      communication, which is crucial for projects requiring data exchange
+      between the Arduino and a computer or other devices.
+
+      ## Featured Code Explanation:
+
+      The code snippet provided is a simple example of using Arduino's serial
+      communication to receive input from the user through the serial monitor
+      and respond accordingly:
+
+      **Breaking down the code:**
+
+
+      1. **Setup Function:**
+
+          - `void setup() { ... }`
+               is a function that runs once when you start your program.
+               It is used to set up configurations or initialize settings.
+          - `Serial.begin(9600);`
+               initializes serial communication at a baud rate of 9600 bits per second.
+               This line sets up the Arduino to send and receive data at this rate, which is standard for many simple communication tasks.
+
+      2. **Loop Function:**
+
+           - `void loop() { ... }`
+               is a function that continuously executes as long as the Arduino is powered on.
+               It allows the program to dynamically react to new data or conditions.
+           - `while (Serial.available() > 0) { ... }`
+               checks if there is any incoming data from the serial port.
+               `Serial.available()` returns the number of bytes (characters) available for reading from the serial buffer.
+               If it’s greater than 0, it means that data is present.
+
+      3. **Reading and Responding to Data:**
+
+           - `String str = Serial.readString();`
+               reads the incoming data from the serial buffer and stores it as a string in the variable `str`.
+               This function will read the serial buffer until it's empty.
+           - The `if` statement checks if the string equals "send".
+               If it does, `Serial.println("identified");` is executed, sending the word "identified" back to the serial monitor.
+            - If the string does not equal "send", the `else` clause executes, and `Serial.println("unknown");` is sent back.
+
+      ## What is Serial Used For?
+
+      In Arduino projects, the serial communication is commonly used for:
+
+      - **Debugging**: By sending data from the Arduino to a computer,
+        developers can monitor what is happening inside the program and
+        troubleshoot issues, similar to using `print` statements in other
+        programming languages. 
+
+      - **Communication**: Arduino can communicate with other devices including
+        sensors, computers, or even other Arduino boards, which is essential for
+        projects like weather stations, where data must be sent from sensors to a
+        processing display. .
+
+      - **Control**: Users can send commands from a computer to the Arduino to
+         control devices connected to it, such as motors, LEDs, or relays.
+         
+  - url: https://edrys-labs.github.io/module-avr8js/index.html
+    config:
+      modules: <span id='simulation-time'></span>
+      execute: execute
+    studentConfig: ''
+    teacherConfig: ''
+    stationConfig: ''
+    showInCustom: Room 1
+    width: full
+    height: medium
