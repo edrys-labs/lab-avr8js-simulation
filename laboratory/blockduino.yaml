@@ -20,27 +20,28 @@ members:
   student: []
 modules:
   - url: https://edrys-labs.github.io/module-markdown-it/index.html
-    config: >-
-      # Introduction to Arduino Programming and Physical Computing
+    config:
+      content: >-
+        # Introduction to Arduino Programming and Physical Computing
 
-      Arduino programming provides an accessible gateway into the world of
-      electronics and programming. At its core, Arduino is a
-      microcontroller-based platform that allows users to interact with various
-      electronic components through easy-to-use software and hardware. It's
-      ideal for hobbyists, artists, and students to prototype and build
-      interactive projects.
+        Arduino programming provides an accessible gateway into the world of
+        electronics and programming. At its core, Arduino is a
+        microcontroller-based platform that allows users to interact with various
+        electronic components through easy-to-use software and hardware. It's
+        ideal for hobbyists, artists, and students to prototype and build
+        interactive projects.
 
-      Physical computing means building interactive physical systems through the
-      use of software and hardware that can sense and respond to the analog
-      world. In Arduino projects, this often involves reading inputs (like
-      pressing a button or sensing light) and controlling outputs (like
-      activating a motor or turning on an LED).
+        Physical computing means building interactive physical systems through the
+        use of software and hardware that can sense and respond to the analog
+        world. In Arduino projects, this often involves reading inputs (like
+        pressing a button or sensing light) and controlling outputs (like
+        activating a motor or turning on an LED).
 
 
-      In this initial room, students will explore the foundational concepts of
-      Arduino programming, focusing on serial communication. Serial
-      communication allows Arduino to communicate with your computer or other
-      devices.
+        In this initial room, students will explore the foundational concepts of
+        Arduino programming, focusing on serial communication. Serial
+        communication allows Arduino to communicate with your computer or other
+        devices.
     showInCustom: Lobby
     width: full
     height: tall
@@ -137,70 +138,70 @@ modules:
     showInCustom: Room 1
     width: full
     height: medium
-    config: |-
-      # Introduction to Arduino Programming: Understanding Serial Communication
+    config:
+      content: |-
+        # Introduction to Arduino Programming: Understanding Serial Communication
 
-      Arduino is an open-source electronics platform based on easy-to-use
-      hardware and software. It's intended for anyone making interactive
-      projects. One of the fundamental aspects of Arduino programming involves
-      understanding how to communicate with the Arduino board via serial
-      communication, which is crucial for projects requiring data exchange
-      between the Arduino and a computer or other devices.
+        Arduino is an open-source electronics platform based on easy-to-use
+        hardware and software. It's intended for anyone making interactive
+        projects. One of the fundamental aspects of Arduino programming involves
+        understanding how to communicate with the Arduino board via serial
+        communication, which is crucial for projects requiring data exchange
+        between the Arduino and a computer or other devices.
 
-      ## Featured Code Explanation:
+        ## Featured Code Explanation:
 
-      The code snippet provided is a simple example of using Arduino's serial
-      communication to receive input from the user through the serial monitor
-      and respond accordingly:
+        The code snippet provided is a simple example of using Arduino's serial
+        communication to receive input from the user through the serial monitor
+        and respond accordingly:
 
-      **Breaking down the code:**
+        **Breaking down the code:**
 
 
-      1. **Setup Function:**
+        1. **Setup Function:**
 
-          - `void setup() { ... }`
-               is a function that runs once when you start your program.
-               It is used to set up configurations or initialize settings.
-          - `Serial.begin(9600);`
-               initializes serial communication at a baud rate of 9600 bits per second.
-               This line sets up the Arduino to send and receive data at this rate, which is standard for many simple communication tasks.
+            - `void setup() { ... }`
+                 is a function that runs once when you start your program.
+                 It is used to set up configurations or initialize settings.
+            - `Serial.begin(9600);`
+                 initializes serial communication at a baud rate of 9600 bits per second.
+                 This line sets up the Arduino to send and receive data at this rate, which is standard for many simple communication tasks.
 
-      2. **Loop Function:**
+        2. **Loop Function:**
 
-           - `void loop() { ... }`
-               is a function that continuously executes as long as the Arduino is powered on.
-               It allows the program to dynamically react to new data or conditions.
-           - `while (Serial.available() > 0) { ... }`
-               checks if there is any incoming data from the serial port.
-               `Serial.available()` returns the number of bytes (characters) available for reading from the serial buffer.
-               If it’s greater than 0, it means that data is present.
+             - `void loop() { ... }`
+                 is a function that continuously executes as long as the Arduino is powered on.
+                 It allows the program to dynamically react to new data or conditions.
+             - `while (Serial.available() > 0) { ... }`
+                 checks if there is any incoming data from the serial port.
+                 `Serial.available()` returns the number of bytes (characters) available for reading from the serial buffer.
+                 If it's greater than 0, it means that data is present.
 
-      3. **Reading and Responding to Data:**
+        3. **Reading and Responding to Data:**
 
-           - `String str = Serial.readString();`
-               reads the incoming data from the serial buffer and stores it as a string in the variable `str`.
-               This function will read the serial buffer until it's empty.
-           - The `if` statement checks if the string equals "send".
-               If it does, `Serial.println("identified");` is executed, sending the word "identified" back to the serial monitor.
-            - If the string does not equal "send", the `else` clause executes, and `Serial.println("unknown");` is sent back.
+             - `String str = Serial.readString();`
+                 reads the incoming data from the serial buffer and stores it as a string in the variable `str`.
+                 This function will read the serial buffer until it's empty.
+             - The `if` statement checks if the string equals "send".
+                 If it does, `Serial.println("identified");` is executed, sending the word "identified" back to the serial monitor.
+              - If the string does not equal "send", the `else` clause executes, and `Serial.println("unknown");` is sent back.
 
-      ## What is Serial Used For?
+        ## What is Serial Used For?
 
-      In Arduino projects, the serial communication is commonly used for:
+        In Arduino projects, the serial communication is commonly used for:
 
-      - **Debugging**: By sending data from the Arduino to a computer,
-        developers can monitor what is happening inside the program and
-        troubleshoot issues, similar to using `print` statements in other
-        programming languages. 
+        - **Debugging**: By sending data from the Arduino to a computer,
+          developers can monitor what is happening inside the program and
+          troubleshoot issues, similar to using `print` statements in other
+          programming languages. 
 
-      - **Communication**: Arduino can communicate with other devices including
-        sensors, computers, or even other Arduino boards, which is essential for
-        projects like weather stations, where data must be sent from sensors to a
-        processing display. .
+        - **Communication**: Arduino can communicate with other devices including
+          sensors, computers, or even other Arduino boards, which is essential for
+          projects like weather stations, where data must be sent from sensors to a
+          processing display. .
 
-      - **Control**: Users can send commands from a computer to the Arduino to
-         control devices connected to it, such as motors, LEDs, or relays.
-         
+        - **Control**: Users can send commands from a computer to the Arduino to
+           control devices connected to it, such as motors, LEDs, or relays.
   - url: https://edrys-labs.github.io/module-avr8js/index.html
     config:
       modules: <span id='simulation-time'></span>

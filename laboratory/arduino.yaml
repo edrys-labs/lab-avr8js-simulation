@@ -20,137 +20,139 @@ members:
   student: []
 modules:
   - url: https://edrys-labs.github.io/module-markdown-it/index.html
-    config: >
-      # Introduction to Arduino Programming and Physical Computing
+    config:
+      content: >-
+        # Introduction to Arduino Programming and Physical Computing
 
-      Arduino programming provides an accessible gateway into the world of
-      electronics and programming. At its core, Arduino is a
-      microcontroller-based platform that allows users to interact with various
-      electronic components through easy-to-use software and hardware. It's
-      ideal for hobbyists, artists, and students to prototype and build
-      interactive projects.
+        Arduino programming provides an accessible gateway into the world of
+        electronics and programming. At its core, Arduino is a
+        microcontroller-based platform that allows users to interact with various
+        electronic components through easy-to-use software and hardware. It's
+        ideal for hobbyists, artists, and students to prototype and build
+        interactive projects.
 
-      Physical computing means building interactive physical systems through the
-      use of software and hardware that can sense and respond to the analog
-      world. In Arduino projects, this often involves reading inputs (like
-      pressing a button or sensing light) and controlling outputs (like
-      activating a motor or turning on an LED).
+        Physical computing means building interactive physical systems through the
+        use of software and hardware that can sense and respond to the analog
+        world. In Arduino projects, this often involves reading inputs (like
+        pressing a button or sensing light) and controlling outputs (like
+        activating a motor or turning on an LED).
 
-      ## Course Structure
+        ## Course Structure
 
-      Our course is structured around three interactive rooms, each designed to
-      introduce students to different aspects of Arduino programming and
-      physical computing. As students progress from one room to the next, they
-      will build upon their knowledge and skills.
+        Our course is structured around three interactive rooms, each designed to
+        introduce students to different aspects of Arduino programming and
+        physical computing. As students progress from one room to the next, they
+        will build upon their knowledge and skills.
 
-      ### First Room: Basics and Serial Communication
+        ### First Room: Basics and Serial Communication
 
-      In this initial room, students will explore the foundational concepts of
-      Arduino programming, focusing on serial communication. Serial
-      communication allows Arduino to communicate with your computer or other
-      devices.
+        In this initial room, students will explore the foundational concepts of
+        Arduino programming, focusing on serial communication. Serial
+        communication allows Arduino to communicate with your computer or other
+        devices.
 
-      ### Second Room: Digital Input and Output
+        ### Second Room: Digital Input and Output
 
-      Moving to the second room, learners will understand how to read digital
-      inputs and control outputs. This is crucial for interfacing with various
-      sensors and actuators.
+        Moving to the second room, learners will understand how to read digital
+        inputs and control outputs. This is crucial for interfacing with various
+        sensors and actuators.
 
-      ### Third Room: LED Grid Visualization with FastLED
+        ### Third Room: LED Grid Visualization with FastLED
 
-      In the final room, students will use the FastLED library to create
-      colorful, dynamic patterns on an LED grid, integrating everything they've
-      learned about programming and physical computing.
+        In the final room, students will use the FastLED library to create
+        colorful, dynamic patterns on an LED grid, integrating everything they've
+        learned about programming and physical computing.
     showInCustom: Lobby
     width: full
     height: tall
   - url: https://edrys-labs.github.io/module-markdown-it/index.html
-    config: >-
-      # Introduction to Arduino Programming: Understanding Serial Communication
+    config:
+      content: >-
+        # Introduction to Arduino Programming: Understanding Serial Communication
 
-      Arduino is an open-source electronics platform based on easy-to-use
-      hardware and software. It's intended for anyone making interactive
-      projects. One of the fundamental aspects of Arduino programming involves
-      understanding how to communicate with the Arduino board via serial
-      communication, which is crucial for projects requiring data exchange
-      between the Arduino and a computer or other devices.
+        Arduino is an open-source electronics platform based on easy-to-use
+        hardware and software. It's intended for anyone making interactive
+        projects. One of the fundamental aspects of Arduino programming involves
+        understanding how to communicate with the Arduino board via serial
+        communication, which is crucial for projects requiring data exchange
+        between the Arduino and a computer or other devices.
 
-      ## Featured Code Explanation:
+        ## Featured Code Explanation:
 
-      The code snippet provided is a simple example of using Arduino's serial
-      communication to receive input from the user through the serial monitor
-      and respond accordingly:
+        The code snippet provided is a simple example of using Arduino's serial
+        communication to receive input from the user through the serial monitor
+        and respond accordingly:
 
 
-      ```cpp
+        ```cpp
 
-      void setup() {
-        Serial.begin(9600);
-      }
-
-      void loop() {
-        while (Serial.available() > 0) {
-          String str = Serial.readString();
-
-          if (str.equals("send")) {
-            Serial.println("identified");
-          } else {
-            Serial.println("unknown");
-          }
+        void setup() {
+          Serial.begin(9600);
         }
-      } 
 
-      ```
+        void loop() {
+          while (Serial.available() > 0) {
+            String str = Serial.readString();
 
-      Copy and paste this code into the Arduino IDE to try it out yourself.
+            if (str.equals("send")) {
+              Serial.println("identified");
+            } else {
+              Serial.println("unknown");
+            }
+          }
+        } 
 
-      **Breaking down the code:**
+        ```
+
+        Copy and paste this code into the Arduino IDE to try it out yourself.
+
+        **Breaking down the code:**
 
 
-      1. **Setup Function:**
+        1. **Setup Function:**
 
-         - `void setup() { ... }`
-           is a function that runs once when you start your program.
-           It is used to set up configurations or initialize settings.
-         - `Serial.begin(9600);`
-           initializes serial communication at a baud rate of 9600 bits per second.
-           This line sets up the Arduino to send and receive data at this rate, which is standard for many simple communication tasks.
+          - `void setup() { ... }`
+            is a function that runs once when you start your program.
+            It is used to set up configurations or initialize settings.
+          - `Serial.begin(9600);`
+            initializes serial communication at a baud rate of 9600 bits per second.
+            This line sets up the Arduino to send and receive data at this rate, which is standard for many simple communication tasks.
 
-      2. **Loop Function:**
+        2. **Loop Function:**
 
-         - `void loop() { ... }`
-           is a function that continuously executes as long as the Arduino is powered on.
-           It allows the program to dynamically react to new data or conditions.
-         - `while (Serial.available() > 0) { ... }`
-           checks if there is any incoming data from the serial port.
-           `Serial.available()` returns the number of bytes (characters) available for reading from the serial buffer.
-           If it’s greater than 0, it means that data is present.
+          - `void loop() { ... }`
+            is a function that continuously executes as long as the Arduino is powered on.
+            It allows the program to dynamically react to new data or conditions.
+          - `while (Serial.available() > 0) { ... }`
+            checks if there is any incoming data from the serial port.
+            `Serial.available()` returns the number of bytes (characters) available for reading from the serial buffer.
+            If it’s greater than 0, it means that data is present.
 
-      3. **Reading and Responding to Data:**
+        3. **Reading and Responding to Data:**
 
-         - `String str = Serial.readString();`
-           reads the incoming data from the serial buffer and stores it as a string in the variable `str`.
-           This function will read the serial buffer until it's empty.
-         - The `if` statement checks if the string equals "send".
-           If it does, `Serial.println("identified");` is executed, sending the word "identified" back to the serial monitor.
-         - If the string does not equal "send", the `else` clause executes, and `Serial.println("unknown");` is sent back.
+          - `String str = Serial.readString();`
+            reads the incoming data from the serial buffer and stores it as a string in the variable `str`.
+            This function will read the serial buffer until it's empty.
+          - The `if` statement checks if the string equals "send".
+            If it does, `Serial.println("identified");` is executed, sending the word "identified" back to the serial monitor.
+          - If the string does not equal "send", the `else` clause executes, and `Serial.println("unknown");` is sent back.
 
-      ## What is Serial Used For?
+        ## What is Serial Used For?
 
-      In Arduino projects, the serial communication is commonly used for:
+        In Arduino projects, the serial communication is commonly used for:
 
-      - **Debugging**: By sending data from the Arduino to a computer,
-      developers can monitor what is happening inside the program and
-      troubleshoot issues, similar to using `print` statements in other
-      programming languages. 
+        - **Debugging**: By sending data from the Arduino to a computer,
+        developers can monitor what is happening inside the program and
+        troubleshoot issues, similar to using `print` statements in other
+        programming languages. 
 
-      - **Communication**: Arduino can communicate with other devices including
-      sensors, computers, or even other Arduino boards, which is essential for
-      projects like weather stations, where data must be sent from sensors to a
-      processing display. .
+        - **Communication**: Arduino can communicate with other devices including
+        sensors, computers, or even other Arduino boards, which is essential for
+        projects like weather stations, where data must be sent from sensors to a
+        processing display. .
 
-      - **Control**: Users can send commands from a computer to the Arduino to
-      control devices connected to it, such as motors, LEDs, or relays.
+        - **Control**: Users can send commands from a computer to the Arduino to
+        control devices connected to it, such as motors, LEDs, or relays.
     showInCustom: room 1
     width: full
     height: huge
@@ -174,102 +176,103 @@ modules:
     showInCustom: Room 2
     width: full
     height: huge
-    config: >-
-      # Arduino Tutorial: Digital Read and Write with Buttons and LEDs
+    config: 
+      content: >-
+        # Arduino Tutorial: Digital Read and Write with Buttons and LEDs
 
 
-      In this tutorial, you'll learn how to use Arduino's digital input and
-      output pins to control LEDs with buttons. This involves reading the state
-      of buttons (input) and setting the state of LEDs (output). We'll use a
-      specific code example to guide you through the process.
+        In this tutorial, you'll learn how to use Arduino's digital input and
+        output pins to control LEDs with buttons. This involves reading the state
+        of buttons (input) and setting the state of LEDs (output). We'll use a
+        specific code example to guide you through the process.
 
 
-      ## Featured Code:
+        ## Featured Code:
 
 
-      Here’s the Arduino code that we will explore:
+        Here’s the Arduino code that we will explore:
 
 
-      ```c
+        ```c
 
-      void setup() {
-        Serial.begin(115200);
-        pinMode(2, INPUT_PULLUP);
-        pinMode(3, INPUT_PULLUP);
-        pinMode(11, OUTPUT);
-        pinMode(12, OUTPUT);
-        pinMode(13, OUTPUT);
-      }
+        void setup() {
+          Serial.begin(115200);
+          pinMode(2, INPUT_PULLUP);
+          pinMode(3, INPUT_PULLUP);
+          pinMode(11, OUTPUT);
+          pinMode(12, OUTPUT);
+          pinMode(13, OUTPUT);
+        }
 
-      int i = 0;
+        int i = 0;
 
-      void loop() {
-        bool green = digitalRead(2);
-        bool red   = digitalRead(3);
-        Serial.print("LED: ");
-        Serial.println(i);
+        void loop() {
+          bool green = digitalRead(2);
+          bool red   = digitalRead(3);
+          Serial.print("LED: ");
+          Serial.println(i);
 
-        digitalWrite(11, green);
-        digitalWrite(13, red);
-        delay(250);
+          digitalWrite(11, green);
+          digitalWrite(13, red);
+          delay(250);
 
-        i += 1;
+          i += 1;
 
-        digitalWrite(12, i % 2);
-      } 
+          digitalWrite(12, i % 2);
+        } 
 
-      ```
-
-
-      ### Step-by-Step Explanation:
+        ```
 
 
-      #### Step 1: Setup the Environment
+        ### Step-by-Step Explanation:
 
 
-      - **Serial Communication**:
-
-        - `Serial.begin(115200);` initializes the serial communication at 115200 bits per second. This speed is higher than the commonly used 9600, allowing for faster data transmission.
-
-      - **Pin Configuration**:
-
-        - `pinMode(2, INPUT_PULLUP);` sets pin 2 as an input pin with an internal pullup resistor. This is commonly used for buttons because it ensures the pin reads HIGH when the button is not pressed.
-        - `pinMode(3, INPUT_PULLUP);` configures pin 3 similarly to pin 2 for another button.
-        - `pinMode(11, OUTPUT);`, `pinMode(12, OUTPUT);`, `pinMode(13, OUTPUT);` set pins 11, 12, and 13 as output pins to control LEDs.
-
-      #### Step 2: The Loop Function
+        #### Step 1: Setup the Environment
 
 
-      - **Reading Button States**:
+        - **Serial Communication**:
 
-        - `bool green = digitalRead(2);` reads the state of the button connected to pin 2. If the button is pressed, `green` becomes LOW due to the pullup resistor configuration.
-        - `bool red = digitalRead(3);` reads the state of the button connected to pin 3 in the same way.
+          - `Serial.begin(115200);` initializes the serial communication at 115200 bits per second. This speed is higher than the commonly used 9600, allowing for faster data transmission.
 
-      - **Serial Output**:
+        - **Pin Configuration**:
 
-        - `Serial.print("LED: ");` and `Serial.println(i);` send the current count of the loop iterations to the serial monitor. This helps in debugging and understanding the program flow.
+          - `pinMode(2, INPUT_PULLUP);` sets pin 2 as an input pin with an internal pullup resistor. This is commonly used for buttons because it ensures the pin reads HIGH when the button is not pressed.
+          - `pinMode(3, INPUT_PULLUP);` configures pin 3 similarly to pin 2 for another button.
+          - `pinMode(11, OUTPUT);`, `pinMode(12, OUTPUT);`, `pinMode(13, OUTPUT);` set pins 11, 12, and 13 as output pins to control LEDs.
 
-      - **Controlling LEDs**:
-
-        - `digitalWrite(11, green);` turns on LED connected to pin 11 when the green button is pressed (i.e., when `green` is LOW).
-        - `digitalWrite(13, red);` turns on the LED connected to pin 13 when the red button is pressed.
-        - `delay(250);` pauses the loop for 250 milliseconds. This delay helps in debouncing the buttons and makes the LED changes visible.
-
-      - **Cyclic LED Control**:
-
-        - `i += 1;` increments the variable `i` each time the loop runs.
-        - `digitalWrite(12, i % 2);` toggles the LED on pin 12. The expression `i % 2` alternates between 0 and 1, thus turning the LED on and off alternatively.
-
-      #### Practical Activity:
+        #### Step 2: The Loop Function
 
 
-      1. **Load the Code**:
+        - **Reading Button States**:
 
-        - Upload the above code to your Arduino using the IDE.
+          - `bool green = digitalRead(2);` reads the state of the button connected to pin 2. If the button is pressed, `green` becomes LOW due to the pullup resistor configuration.
+          - `bool red = digitalRead(3);` reads the state of the button connected to pin 3 in the same way.
 
-      2. **Test and Experiment**:
+        - **Serial Output**:
 
-        - Press the buttons and observe the behavior of the LEDs. Watch the serial monitor to see the value of `i` and understand how it relates to the LED states.
+          - `Serial.print("LED: ");` and `Serial.println(i);` send the current count of the loop iterations to the serial monitor. This helps in debugging and understanding the program flow.
+
+        - **Controlling LEDs**:
+
+          - `digitalWrite(11, green);` turns on LED connected to pin 11 when the green button is pressed (i.e., when `green` is LOW).
+          - `digitalWrite(13, red);` turns on the LED connected to pin 13 when the red button is pressed.
+          - `delay(250);` pauses the loop for 250 milliseconds. This delay helps in debouncing the buttons and makes the LED changes visible.
+
+        - **Cyclic LED Control**:
+
+          - `i += 1;` increments the variable `i` each time the loop runs.
+          - `digitalWrite(12, i % 2);` toggles the LED on pin 12. The expression `i % 2` alternates between 0 and 1, thus turning the LED on and off alternatively.
+
+        #### Practical Activity:
+
+
+        1. **Load the Code**:
+
+          - Upload the above code to your Arduino using the IDE.
+
+        2. **Test and Experiment**:
+
+          - Press the buttons and observe the behavior of the LEDs. Watch the serial monitor to see the value of `i` and understand how it relates to the LED states.
   - url: https://edrys-labs.github.io/module-editor/index.html
     showInCustom: Room 2
     width: full
@@ -296,131 +299,132 @@ modules:
     showInCustom: Room 3
     width: full
     height: medium
-    config: >-
+    config: 
+      content: >-
       # Interactive LED Programming Lab
 
-      The provided code snippet utilizes the FastLED library to control a grid
-      of LEDs configured as a matrix of 9x9. This code is suitable for a variety
-      of programmable RGB LED types, such as NeoPixel, which use a single-wire
-      protocol. Below, I'll explain how to use FastLED, set up your hardware,
-      and detail the peculiarities of communicating with a LED matrix.
+        The provided code snippet utilizes the FastLED library to control a grid
+        of LEDs configured as a matrix of 9x9. This code is suitable for a variety
+        of programmable RGB LED types, such as NeoPixel, which use a single-wire
+        protocol. Below, I'll explain how to use FastLED, set up your hardware,
+        and detail the peculiarities of communicating with a LED matrix.
 
 
-      ```cpp
+        ```cpp
 
-      #include "FastLED.h"
+        #include "FastLED.h"
 
-      // Matrix size
+        // Matrix size
 
-      #define NUM_ROWS 9
+        #define NUM_ROWS 9
 
-      #define NUM_COLS 9
-
-
-      // LEDs pin
-
-      #define DATA_PIN 3
+        #define NUM_COLS 9
 
 
-      // LED brightness
+        // LEDs pin
 
-      #define BRIGHTNESS 180
-
-      #define NUM_LEDS NUM_ROWS * NUM_COLS
+        #define DATA_PIN 3
 
 
-      // Define the array of leds
+        // LED brightness
 
-      CRGB leds[NUM_LEDS];
+        #define BRIGHTNESS 180
+
+        #define NUM_LEDS NUM_ROWS * NUM_COLS
 
 
-      void setup() {
-        FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
-        FastLED.setBrightness(BRIGHTNESS);
-      }
+        // Define the array of leds
 
-      int counter = 0; void loop() {
-        for (byte row = 0; row < NUM_ROWS; row++) {
-          for (byte col = 0; col < NUM_COLS; col++) {
-            int delta = abs(NUM_ROWS - row * 2) + abs(NUM_COLS - col * 2);
-            leds[row * NUM_COLS + col] = CHSV(delta * 4 + counter, 255, 255);
-          }
+        CRGB leds[NUM_LEDS];
+
+
+        void setup() {
+          FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
+          FastLED.setBrightness(BRIGHTNESS);
         }
-        FastLED.show();
-        delay(5);
-        counter++;
-      }
 
-      ```
+        int counter = 0; void loop() {
+          for (byte row = 0; row < NUM_ROWS; row++) {
+            for (byte col = 0; col < NUM_COLS; col++) {
+              int delta = abs(NUM_ROWS - row * 2) + abs(NUM_COLS - col * 2);
+              leds[row * NUM_COLS + col] = CHSV(delta * 4 + counter, 255, 255);
+            }
+          }
+          FastLED.show();
+          delay(5);
+          counter++;
+        }
 
-
-      ### 1. Define Constants and Variables
-
-
-      - **Matrix Size**: Defines the dimensions of the LED matrix. Here,
-      `NUM_ROWS` and `NUM_COLS` are both set to 9, creating an 81 LED grid. 
-
-      - **LEDs Pin**: `DATA_PIN` is set to 3, indicating that the data line of
-      the LED strip is connected to pin 3 of the Arduino. 
-
-      - **LED Brightness**: `BRIGHTNESS` is defined as 180 on a scale from 0
-      (off) to 255 (full brightness).
+        ```
 
 
-      ### 2. Define LED Array
+        ### 1. Define Constants and Variables
 
 
-      `CRGB leds[NUM_LEDS];` declares an array of `CRGB` objects, where
-      `NUM_LEDS` is the total number of LEDs in the matrix (`NUM_ROWS *
-      NUM_COLS`).
+        - **Matrix Size**: Defines the dimensions of the LED matrix. Here,
+        `NUM_ROWS` and `NUM_COLS` are both set to 9, creating an 81 LED grid. 
+
+        - **LEDs Pin**: `DATA_PIN` is set to 3, indicating that the data line of
+        the LED strip is connected to pin 3 of the Arduino. 
+
+        - **LED Brightness**: `BRIGHTNESS` is defined as 180 on a scale from 0
+        (off) to 255 (full brightness).
 
 
-      ### 3. Setup Function
+        ### 2. Define LED Array
 
 
-      - `FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);` initializes the
-      FastLED library for a strip of NeoPixel LEDs connected to `DATA_PIN`. 
-
-      - `FastLED.setBrightness(BRIGHTNESS);` sets the initial brightness of the
-      LEDs.
+        `CRGB leds[NUM_LEDS];` declares an array of `CRGB` objects, where
+        `NUM_LEDS` is the total number of LEDs in the matrix (`NUM_ROWS *
+        NUM_COLS`).
 
 
-      ### 4. Loop Function
+        ### 3. Setup Function
 
 
-      - This function updates the LEDs' colors continuously. It uses two nested
-      loops to iterate over each LED in the matrix by row and column.
+        - `FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);` initializes the
+        FastLED library for a strip of NeoPixel LEDs connected to `DATA_PIN`. 
 
-      - Each LED's color is set based on its position, creating a dynamic,
-      cycling hue effect. `CHSV(delta * 4 + counter, 255, 255)` creates a color
-      in the HSV color space, which changes over time due to the `counter`
-      variable.
+        - `FastLED.setBrightness(BRIGHTNESS);` sets the initial brightness of the
+        LEDs.
 
 
-      ### Peculiarities of LED Matrix Communication
+        ### 4. Loop Function
 
 
-      - **Data Protocol**: NeoPixel LEDs (WS2812B) and similar use a single-wire
-      communication protocol which is timing-specific. FastLED handles these
-      timing requirements internally.
+        - This function updates the LEDs' colors continuously. It uses two nested
+        loops to iterate over each LED in the matrix by row and column.
 
-      - **Power Consumption**: LEDs can draw significant power; always calculate
-      the total current draw and ensure your power supply can handle it without
-      voltage drops.
-
-      - **Color and Brightness**: Manipulating brightness and color using HSV or
-      RGB values in FastLED allows for complex effects without in-depth
-      knowledge of the underlying electronics.
+        - Each LED's color is set based on its position, creating a dynamic,
+        cycling hue effect. `CHSV(delta * 4 + counter, 255, 255)` creates a color
+        in the HSV color space, which changes over time due to the `counter`
+        variable.
 
 
-      ### Experimenting and Expanding
+        ### Peculiarities of LED Matrix Communication
 
 
-      You are free to experiment by changing the HSV values, adjusting the
-      `delay()`, or implementing conditions based on external inputs (like
-      sensors). These modifications can result in a variety of visual effects
-      and help students understand both programming and hardware integration
-      better.
+        - **Data Protocol**: NeoPixel LEDs (WS2812B) and similar use a single-wire
+        communication protocol which is timing-specific. FastLED handles these
+        timing requirements internally.
+
+        - **Power Consumption**: LEDs can draw significant power; always calculate
+        the total current draw and ensure your power supply can handle it without
+        voltage drops.
+
+        - **Color and Brightness**: Manipulating brightness and color using HSV or
+        RGB values in FastLED allows for complex effects without in-depth
+        knowledge of the underlying electronics.
+
+
+        ### Experimenting and Expanding
+
+
+        You are free to experiment by changing the HSV values, adjusting the
+        `delay()`, or implementing conditions based on external inputs (like
+        sensors). These modifications can result in a variety of visual effects
+        and help students understand both programming and hardware integration
+        better.
   - url: https://edrys-labs.github.io/module-avr8js/index.html
     showInCustom: Room 3
     width: half
