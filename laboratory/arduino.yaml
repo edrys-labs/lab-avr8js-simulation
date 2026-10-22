@@ -156,15 +156,17 @@ modules:
     showInCustom: room 1
     width: full
     height: huge
-  - url: https://edrys-labs.github.io/module-editor/index.html
+  - url: https://edrys-labs.github.io/module-monaco-editor/
     showInCustom: Room 1
     width: half
     height: medium
     config:
-      editorText: // paste your code in here
+      synchronize: true
+      showLanguageSelector: true
+      value: // paste your code in here
       runCommand: execute
       language: cpp
-      theme: light
+      theme: vs-light
   - url: https://edrys-labs.github.io/module-avr8js/index.html
     showInCustom: Room 1
     width: half
@@ -273,15 +275,17 @@ modules:
         2. **Test and Experiment**:
 
           - Press the buttons and observe the behavior of the LEDs. Watch the serial monitor to see the value of `i` and understand how it relates to the LED states.
-  - url: https://edrys-labs.github.io/module-editor/index.html
+  - url: https://edrys-labs.github.io/module-monaco-editor/
     showInCustom: Room 2
     width: full
     height: medium
     config:
-      editorText: // paste your code in here
+      synchronize: true
+      showLanguageSelector: true
+      value: // paste your code in here
       runCommand: execute
       language: cpp
-      theme: light
+      theme: vs-light
   - url: https://edrys-labs.github.io/module-avr8js/index.html
     showInCustom: Room 2
     width: full
@@ -301,7 +305,7 @@ modules:
     height: medium
     config: 
       content: >-
-      # Interactive LED Programming Lab
+        # Interactive LED Programming Lab
 
         The provided code snippet utilizes the FastLED library to control a grid
         of LEDs configured as a matrix of 9x9. This code is suitable for a variety
@@ -436,12 +440,14 @@ modules:
 
         <span id='simulation-time'></span>
       execute: execute
-  - url: https://edrys-labs.github.io/module-editor/index.html
+  - url: https://edrys-labs.github.io/module-monaco-editor/
     showInCustom: Room 3
     width: full
     height: medium
     config:
-      editorText: // paste your code in here
+      synchronize: true
+      showLanguageSelector: true
+      value: // paste your code in here
       runCommand: execute
       language: cpp
-      theme: light
+      theme: vs-light

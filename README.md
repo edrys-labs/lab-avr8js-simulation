@@ -8,7 +8,7 @@ To import these examples into the edrys-Lite app, simply copy one of the followi
 
 This example combines:
 
-- [module-editor](https://github.com/edrys-labs/module-editor): Simple minimal and configurable code editor.
+- [module-monaco-editor](https://github.com/edrys-labs/module-monaco-editor): Collaborative code editor with real-time sync.
 - [module-markdown-it](https://github.com/edrys-labs/module-markdown-it): Markdown viewer used for documentation.
 - [module-avr8js](https://github.com/edrys-labs/module-avr8js): An AVR simulator with a configurable periphery (for code compilation and execution).
 

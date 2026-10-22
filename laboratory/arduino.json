@@ -33,15 +33,17 @@
       "height": "huge"
     },
     {
-      "url": "https://edrys-labs.github.io/module-editor/index.html",
+      "url": "https://edrys-labs.github.io/module-monaco-editor/",
       "showInCustom": "Room 1",
       "width": "half",
       "height": "medium",
       "config": {
-        "editorText": "// paste your code in here",
         "runCommand": "execute",
         "language": "cpp",
-        "theme": "light"
+        "theme": "vs-light",
+        "value": "// paste your code in here",
+        "synchronize": true,
+        "showLanguageSelector": true
       }
     },
     {
@@ -64,15 +66,17 @@
       }
     },
     {
-      "url": "https://edrys-labs.github.io/module-editor/index.html",
+      "url": "https://edrys-labs.github.io/module-monaco-editor/",
       "showInCustom": "Room 2",
       "width": "full",
       "height": "medium",
       "config": {
-        "editorText": "// paste your code in here",
         "runCommand": "execute",
         "language": "cpp",
-        "theme": "light"
+        "theme": "vs-light",
+        "value": "// paste your code in here",
+        "synchronize": true,
+        "showLanguageSelector": true
       }
     },
     {
@@ -105,15 +109,17 @@
       }
     },
     {
-      "url": "https://edrys-labs.github.io/module-editor/index.html",
+      "url": "https://edrys-labs.github.io/module-monaco-editor/",
       "showInCustom": "Room 3",
       "width": "full",
       "height": "medium",
       "config": {
-        "editorText": "// paste your code in here",
         "runCommand": "execute",
         "language": "cpp",
-        "theme": "light"
+        "theme": "vs-light",
+        "value": "// paste your code in here",
+        "synchronize": true,
+        "showLanguageSelector": true
       }
     }
   ]
