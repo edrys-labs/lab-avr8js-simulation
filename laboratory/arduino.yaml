@@ -91,6 +91,7 @@ modules:
         void loop() {
           while (Serial.available() > 0) {
             String str = Serial.readString();
+            str.trim(); // drop the line ending the Serial Monitor sends
 
             if (str.equals("send")) {
               Serial.println("identified");
@@ -131,6 +132,8 @@ modules:
           - `String str = Serial.readString();`
             reads the incoming data from the serial buffer and stores it as a string in the variable `str`.
             This function will read the serial buffer until it's empty.
+          - `str.trim();`
+            removes spaces and the line ending at both ends of `str`. The Serial Monitor ends every line you send with a newline, so without this `str` would be `"send\n"` and never equal `"send"`.
           - The `if` statement checks if the string equals "send".
             If it does, `Serial.println("identified");` is executed, sending the word "identified" back to the serial monitor.
           - If the string does not equal "send", the `else` clause executes, and `Serial.println("unknown");` is sent back.
@@ -207,8 +210,8 @@ modules:
         int i = 0;
 
         void loop() {
-          bool green = digitalRead(2);
-          bool red   = digitalRead(3);
+          bool green = digitalRead(2) == LOW; // pressed
+          bool red   = digitalRead(3) == LOW;
           Serial.print("LED: ");
           Serial.println(i);
 
@@ -245,8 +248,8 @@ modules:
 
         - **Reading Button States**:
 
-          - `bool green = digitalRead(2);` reads the state of the button connected to pin 2. If the button is pressed, `green` becomes LOW due to the pullup resistor configuration.
-          - `bool red = digitalRead(3);` reads the state of the button connected to pin 3 in the same way.
+          - `bool green = digitalRead(2) == LOW;` reads the state of the button connected to pin 2. A pressed button connects the pin to GND, so it reads LOW; without a press the pullup resistor keeps it HIGH. `green` is therefore `true` while the button is pressed.
+          - `bool red = digitalRead(3) == LOW;` reads the state of the button connected to pin 3 in the same way.
 
         - **Serial Output**:
 
@@ -254,7 +257,7 @@ modules:
 
         - **Controlling LEDs**:
 
-          - `digitalWrite(11, green);` turns on LED connected to pin 11 when the green button is pressed (i.e., when `green` is LOW).
+          - `digitalWrite(11, green);` turns on LED connected to pin 11 when the green button is pressed (i.e., when `green` is `true`).
           - `digitalWrite(13, red);` turns on the LED connected to pin 13 when the red button is pressed.
           - `delay(250);` pauses the loop for 250 milliseconds. This delay helps in debouncing the buttons and makes the LED changes visible.
 
