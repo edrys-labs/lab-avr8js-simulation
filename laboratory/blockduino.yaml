@@ -57,10 +57,15 @@ modules:
           <block type="vars_set_string" id="{vo=Pn6Y;.eehBOmQD6@" x="38" y="188">
             <field name="VAR_SET_STRING" id="z~jQ?h:|,if+2K?];93i" variabletype="String">str</field>
             <value name="VALUE">
-              <block type="board_serial_readStringUntil" id="6*a,kO~H!:oH`9:cIU@i">
-                <value name="CONTENT">
-                  <block type="text" id="M#)2(Ugi#(Zf(K@99$xc">
-                    <field name="TEXT">;</field>
+              <block type="text_trim" id="trimSerialInput">
+                <field name="MODE">BOTH</field>
+                <value name="TEXT">
+                  <block type="board_serial_readStringUntil" id="6*a,kO~H!:oH`9:cIU@i">
+                    <value name="CONTENT">
+                      <block type="text" id="M#)2(Ugi#(Zf(K@99$xc">
+                        <field name="TEXT">;</field>
+                      </block>
+                    </value>
                   </block>
                 </value>
               </block>
@@ -149,40 +154,39 @@ modules:
 
         ## Featured Code Explanation:
 
-        The code snippet provided is a simple example of using Arduino's serial
-        communication to receive input from the user through the serial monitor
-        and respond accordingly:
+        The blocks next to this text are a simple example of using Arduino's
+        serial communication: they read what you type into the serial input of
+        the simulator and answer it. Type `send` and press Send: the Arduino
+        answers `identified`, anything else gets `unknown`.
 
-        **Breaking down the code:**
+        **Breaking down the blocks:**
 
+        1. **Setup:**
 
-        1. **Setup Function:**
+            - The "Serial init" block becomes `Serial.begin(9600);` in `setup()`,
+              which runs once when the program starts. It starts serial
+              communication at 9600 bits per second.
 
-            - `void setup() { ... }`
-                 is a function that runs once when you start your program.
-                 It is used to set up configurations or initialize settings.
-            - `Serial.begin(9600);`
-                 initializes serial communication at a baud rate of 9600 bits per second.
-                 This line sets up the Arduino to send and receive data at this rate, which is standard for many simple communication tasks.
+        2. **Loop:**
 
-        2. **Loop Function:**
+            - All other blocks end up in `loop()`, which runs again and again
+              as long as the Arduino is powered on.
 
-             - `void loop() { ... }`
-                 is a function that continuously executes as long as the Arduino is powered on.
-                 It allows the program to dynamically react to new data or conditions.
-             - `while (Serial.available() > 0) { ... }`
-                 checks if there is any incoming data from the serial port.
-                 `Serial.available()` returns the number of bytes (characters) available for reading from the serial buffer.
-                 If it's greater than 0, it means that data is present.
+        3. **Reading the input:**
 
-        3. **Reading and Responding to Data:**
+            - `str = textTrim(Serial.readStringUntil(';'));`
+              reads characters until a `;` arrives or one second passes without
+              new ones, and stores them in the text variable `str`.
+            - The "trim" block removes spaces and the line ending at both ends.
+              The serial monitor ends every line you send with a newline, so
+              without it `str` would be `"send\n"` and never equal `"send"`.
 
-             - `String str = Serial.readString();`
-                 reads the incoming data from the serial buffer and stores it as a string in the variable `str`.
-                 This function will read the serial buffer until it's empty.
-             - The `if` statement checks if the string equals "send".
-                 If it does, `Serial.println("identified");` is executed, sending the word "identified" back to the serial monitor.
-              - If the string does not equal "send", the `else` clause executes, and `Serial.println("unknown");` is sent back.
+        4. **Responding:**
+
+            - If `str` is empty, nothing arrived within the second and the
+              program reads again.
+            - If `str` equals "send", `Serial.println("identified");` answers,
+              otherwise `Serial.println("unknown");`.
 
         ## What is Serial Used For?
 
