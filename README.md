@@ -2,7 +2,7 @@
 
 Here we provide two simple examples on how to use the avr8js simulator in the edrys laboratory and how these can be combined with different editors.
 
-To import these examples into the edrys-Lite app, simply copy one of the following URLs and paste it into the import dialog in settings, after you have created a new class.
+To import these examples into the edrys-Lite app, simply copy one of the following URLs and paste it into ⚙️ Settings → Import / Export → Restore, after you have created a new class. Or pick the lab directly: "Create a class" → "From a ready-made lab".
 
 ## Arduino
 
