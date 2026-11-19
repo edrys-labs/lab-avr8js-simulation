@@ -130,6 +130,7 @@ modules:
           </block>
         </xml>
       runCommand: execute
+      synchronize: true
       board: arduino_mega
     studentConfig: ''
     teacherConfig: ''
